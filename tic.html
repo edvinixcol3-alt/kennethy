@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>TIC</title>
+
+<style>
+
+body{
+font-family: Arial, Helvetica, sans-serif;
+margin:0;
+background:linear-gradient(135deg,#4facfe,#00f2fe);
+text-align:center;
+}
+
+.container{
+background:white;
+width:80%;
+max-width:900px;
+margin:60px auto;
+padding:40px;
+border-radius:15px;
+box-shadow:0px 10px 30px rgba(0,0,0,0.2);
+}
+
+h1{
+font-size:36px;
+color:#2c3e50;
+}
+
+h2{
+color:#34495e;
+}
+
+p{
+font-size:18px;
+line-height:1.6;
+}
+
+.btn{
+display:inline-block;
+margin:10px;
+padding:14px 25px;
+background:#ff6a00;
+color:white;
+border-radius:20px;
+cursor:pointer;
+}
+
+.btn:hover{
+transform:scale(1.05);
+}
+
+.seccion{
+display:none;
+}
+
+img{
+width:300px;
+margin:20px;
+}
+
+button{
+padding:10px 20px;
+font-size:18px;
+background:#27ae60;
+color:white;
+border:none;
+border-radius:10px;
+cursor:pointer;
+}
+
+input{
+padding:10px;
+font-size:18px;
+border-radius:8px;
+border:1px solid #ccc;
+}
+
+.resultado{
+margin-top:20px;
+font-size:20px;
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- PORTADA -->
+
+<div class="container" id="inicio">
+
+<h1>Tecnologías de la Información y la Comunicación</h1>
+
+<h2>Introducción</h2>
+
+<p>
+Las Tecnologías de la Información y la Comunicación (TIC) son el conjunto de herramientas tecnológicas 
+que permiten crear, almacenar, procesar y compartir información mediante medios digitales.
+Actualmente son fundamentales en la educación, el trabajo y la comunicación.
+</p>
+
+<p>
+Dentro del mundo de las TIC una de las áreas más importantes es el desarrollo web.
+Para crear páginas web se utilizan tecnologías como HTML, CSS y JavaScript.
+</p>
+
+<p>
+En esta página encontrarás dos secciones:
+<br><br>
+• Información sobre HTML  
+<br>
+• Una calculadora básica de trigonometría
+</p>
+
+<h3>Elaborado por:</h3>
+
+<p>
+Kenneth<br>
+Ángel<br>
+Josué
+</p>
+
+<div class="btn" onclick="mostrarHTML()">HTML</div>
+<div class="btn" onclick="mostrarTrig()">Trigonometría</div>
+
+</div>
+
+<!-- SECCION HTML -->
+
+<div class="container seccion" id="html">
+
+<h1>HTML</h1>
+
+<h2>¿Qué es HTML?</h2>
+
+<p>
+HTML (HyperText Markup Language) es el lenguaje de marcado utilizado para crear 
+y estructurar el contenido de las páginas web. A través de diferentes etiquetas,
+HTML permite organizar la información que aparece en un sitio web como títulos,
+párrafos, imágenes, enlaces, tablas y formularios.
+</p>
+
+<p>
+Este lenguaje fue desarrollado por Tim Berners-Lee y es considerado la base del
+desarrollo web. HTML trabaja junto con otros lenguajes como CSS, que se encarga
+del diseño y la apariencia de la página, y JavaScript, que permite agregar
+interactividad y funciones dinámicas.
+</p>
+
+<h2>Elementos que se pueden crear con HTML</h2>
+
+<ul style="text-align:left;display:inline-block;">
+<li>Títulos</li>
+<li>Párrafos</li>
+<li>Imágenes</li>
+<li>Enlaces</li>
+<li>Tablas</li>
+<li>Formularios</li>
+</ul>
+
+<br><br>
+
+<div class="btn" onclick="volver()">Volver</div>
+
+</div>
+
+<!-- SECCION TRIGONOMETRIA -->
+
+<div class="container seccion" id="trig">
+
+<h1>Calculadora de Trigonometría</h1>
+
+<p>Ejemplo de triángulo rectángulo:</p>
+
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Right_triangle_with_sides_a_b_c.svg/512px-Right_triangle_with_sides_a_b_c.svg.png">
+
+<p>Ingrese el ángulo en grados</p>
+
+<input type="number" id="angulo" placeholder="Ejemplo: 30">
+
+<br><br>
+
+<button onclick="resolver()">Calcular</button>
+
+<div class="resultado" id="resultado"></div>
+
+<br><br>
+
+<div class="btn" onclick="volver()">Volver</div>
+
+</div>
+
+<script>
+
+function mostrarHTML(){
+
+document.getElementById("inicio").style.display="none";
+document.getElementById("html").style.display="block";
+
+}
+
+function mostrarTrig(){
+
+document.getElementById("inicio").style.display="none";
+document.getElementById("trig").style.display="block";
+
+}
+
+function volver(){
+
+document.getElementById("inicio").style.display="block";
+document.getElementById("html").style.display="none";
+document.getElementById("trig").style.display="none";
+
+}
+
+function resolver(){
+
+let angulo=document.getElementById("angulo").value;
+
+let rad=angulo*Math.PI/180;
+
+let seno=Math.sin(rad).toFixed(4);
+let coseno=Math.cos(rad).toFixed(4);
+let tangente=Math.tan(rad).toFixed(4);
+
+document.getElementById("resultado").innerHTML=
+
+"Sen("+angulo+") = "+seno+"<br>"+
+"Cos("+angulo+") = "+coseno+"<br>"+
+"Tan("+angulo+") = "+tangente;
+
+}
+
+</script>
+
+</body>
+</html>
